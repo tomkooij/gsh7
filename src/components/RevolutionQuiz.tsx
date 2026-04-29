@@ -41,10 +41,10 @@ const RevolutionQuiz: React.FC = () => {
   if (!currentItem) return null;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl p-8">
+    <div className="max-w-2xl mx-auto">
       <div className="mb-6 flex justify-between items-center">
         <h2 className="text-2xl font-bold text-gray-800">Bij welke revolutie hoort dit?</h2>
-        <span className="text-blue-600 font-bold">Score: {score}</span>
+        <span className="text-blue-600 font-bold bg-white px-3 py-1 rounded-full shadow-sm border border-blue-100">Score: {score}</span>
       </div>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-8 border-l-4 border-blue-500 text-xl font-medium text-gray-700 min-h-[100px] flex items-center justify-center text-center">

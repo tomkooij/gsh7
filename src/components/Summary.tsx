@@ -2,8 +2,8 @@ import React from 'react';
 
 const Summary: React.FC = () => {
   return (
-    <div className="bg-white rounded-xl shadow-xl p-8 text-left max-w-4xl mx-auto leading-relaxed text-gray-800">
-      <h2 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-100 pb-2">Samenvatting: De Tijd van Pruiken en Revoluties</h2>
+    <div className="p-4 text-left max-w-4xl mx-auto leading-relaxed text-gray-800">
+      <h2 className="text-3xl font-bold mb-6 text-blue-800 border-b-2 border-blue-200 pb-2">Samenvatting: De Tijd van Pruiken en Revoluties</h2>
       
       <section className="mb-8">
         <h3 className="text-xl font-bold mb-3 text-blue-700">1. De Verlichting (Rationalisme en Optimisme)</h3>

@@ -101,54 +101,56 @@ function App() {
         </header>
 
         <main className="pb-12">
-          {view === 'flashcards' && (
-            <>
-              <div className="mb-8">
-                <Flashcard 
-                  question={currentCard.question}
-                  answer={currentCard.answer}
-                  isFlipped={isFlipped}
-                  onClick={() => setIsFlipped(!isFlipped)}
-                />
-              </div>
-
-              <div className="flex flex-col items-center gap-6">
-                <div className="text-sm font-medium text-gray-500">
-                  Kaart {currentIndex + 1} van {cards.length}
+          <div className="ledger-container shadow-2xl">
+            {view === 'flashcards' && (
+              <>
+                <div className="mb-8">
+                  <Flashcard 
+                    question={currentCard.question}
+                    answer={currentCard.answer}
+                    isFlipped={isFlipped}
+                    onClick={() => setIsFlipped(!isFlipped)}
+                  />
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <button 
-                    onClick={prevCard}
-                    className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-                  >
-                    Vorige
-                  </button>
-                  
-                  <button 
-                    onClick={shuffleCards}
-                    className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-                  >
-                    Schudden
-                  </button>
+                <div className="flex flex-col items-center gap-6">
+                  <div className="text-sm font-medium text-gray-500">
+                    Kaart {currentIndex + 1} van {cards.length}
+                  </div>
 
-                  <button 
-                    onClick={nextCard}
-                    className="px-6 py-2 bg-blue-600 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
-                  >
-                    Volgende
-                  </button>
-                </div>
+                  <div className="flex items-center gap-4">
+                    <button 
+                      onClick={prevCard}
+                      className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    >
+                      Vorige
+                    </button>
+                    
+                    <button 
+                      onClick={shuffleCards}
+                      className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    >
+                      Schudden
+                    </button>
 
-                <div className="text-xs text-gray-400 mt-4 italic">
-                  Tip: Gebruik de pijltoetsen om te navigeren en spatie om de kaart om te draaien.
+                    <button 
+                      onClick={nextCard}
+                      className="px-6 py-2 bg-blue-600 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                    >
+                      Volgende
+                    </button>
+                  </div>
+
+                  <div className="text-xs text-gray-400 mt-4 italic">
+                    Tip: Gebruik de pijltoetsen om te navigeren en spatie om de kaart om te draaien.
+                  </div>
                 </div>
-              </div>
-            </>
-          )}
-          {view === 'summary' && <Summary />}
-          {view === 'thinker-quiz' && <ThinkerQuiz />}
-          {view === 'revolution-quiz' && <RevolutionQuiz />}
+              </>
+            )}
+            {view === 'summary' && <Summary />}
+            {view === 'thinker-quiz' && <ThinkerQuiz />}
+            {view === 'revolution-quiz' && <RevolutionQuiz />}
+          </div>
         </main>
       </div>
     </div>

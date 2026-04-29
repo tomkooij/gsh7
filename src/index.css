@@ -23,9 +23,38 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f3f4f6; /* Solid light gray background */
-  color: #111827; /* Dark text */
+  /* Ledger paper background */
+  background-color: #e5e7eb;
+  background-image: 
+    radial-gradient(#9ca3af 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  color: #111827;
 }
+
+.ledger-container {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(90deg, transparent 40px, #fca5a5 40px, #fca5a5 42px, transparent 42px),
+    linear-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 100% 100%, 100% 2rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  padding: 3rem 2rem 2rem 4.5rem;
+  min-height: 400px;
+  position: relative;
+}
+
+.ledger-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 32px;
+  height: 100%;
+  width: 2px;
+  background-color: #fca5a5;
+  opacity: 0.5;
+}
+
 
 #root {
   width: 100%;
