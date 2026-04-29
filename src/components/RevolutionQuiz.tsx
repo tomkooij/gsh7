@@ -76,7 +76,9 @@ const RevolutionQuiz: React.FC = () => {
         <div className="animate-fade-in">
           <div className={`p-4 rounded-lg mb-6 ${selectedRevolution === currentItem.revolution ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
             <p className="font-bold mb-1">
-              {selectedRevolution === currentItem.revolution ? 'Correct!' : 'Onjuist'}
+              {selectedRevolution === currentItem.revolution 
+                ? `Correct! Dit hoort bij de ${currentItem.revolution}.` 
+                : `Onjuist. Dit hoort bij de ${currentItem.revolution}.`}
             </p>
             <p>{currentItem.explanation}</p>
           </div>
