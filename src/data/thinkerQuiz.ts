@@ -73,5 +73,65 @@ export const thinkerStatements: ThinkerStatement[] = [
     statement: "Hoge belastingen en importverboden remmen de economie; vrije handel is de weg naar rijkdom.",
     thinker: "Adam Smith",
     explanation: "Smith verzette zich tegen het mercantilisme en voor economische vrijheid."
+  },
+  {
+    id: 11,
+    statement: "Geen enkele mens heeft van nature gezag over zijn medemens; macht moet gebaseerd zijn op afspraken.",
+    thinker: "Jean-Jacques Rousseau",
+    explanation: "Rousseau geloofde in het sociaal contract: macht komt voort uit de wil van de gemeenschap."
+  },
+  {
+    id: 12,
+    statement: "Het recht op bezit is zo heilig dat zelfs de koning het niet zonder toestemming mag afnemen.",
+    thinker: "John Locke",
+    explanation: "Eigendom was voor Locke een van de fundamentele natuurrechten van de mens."
+  },
+  {
+    id: 13,
+    statement: "Dogma's en bijgeloof zijn de vijanden van de vooruitgang; leve de tolerantie!",
+    thinker: "Voltaire",
+    explanation: "Voltaire vocht zijn hele leven tegen religieus fanatisme en voor de rede."
+  },
+  {
+    id: 14,
+    statement: "Vrijheid is het recht om alles te doen wat de wet toestaat, maar die wet moet door een gekozen parlement gemaakt worden.",
+    thinker: "Montesquieu",
+    explanation: "Montesquieu zag wetten als de garantie voor burgerlijke vrijheid, mits de machten gescheiden waren."
+  },
+  {
+    id: 15,
+    statement: "Consumenten bepalen wat er geproduceerd wordt; de overheid moet niet proberen de prijs van brood te bepalen.",
+    thinker: "Adam Smith",
+    explanation: "Smith geloofde dat de markt zichzelf reguleert door vraag en aanbod."
+  },
+  {
+    id: 16,
+    statement: "Een goede opvoeding is belangrijker dan strenge wetten om een goede burger van iemand te maken.",
+    thinker: "Jean-Jacques Rousseau",
+    explanation: "Rousseau schreef het beroemde boek 'Émile' over de natuurlijke opvoeding van kinderen."
+  },
+  {
+    id: 17,
+    statement: "De rechterlijke macht moet onafhankelijk zijn van de politiek om eerlijke rechtspraak te garanderen.",
+    thinker: "Montesquieu",
+    explanation: "Dit is een essentieel onderdeel van de trias politica."
+  },
+  {
+    id: 18,
+    statement: "De natuurwetten gelden voor iedereen, of je nu een bedelaar bent of een edelman.",
+    thinker: "John Locke",
+    explanation: "Locke legde de basis voor de gelijkheid van alle mensen voor de wet."
+  },
+  {
+    id: 19,
+    statement: "Ik ben misschien een deïst, maar ik vind dat we de kerk nog steeds nodig hebben om de mensen moreel te houden.",
+    thinker: "Voltaire",
+    explanation: "Hoewel kritisch op de kerk, zag Voltaire religie wel als een nuttig middel voor maatschappelijke orde."
+  },
+  {
+    id: 20,
+    statement: "Specialisatie in het werk leidt tot een enorme stijging van de productie en dus meer welvaart.",
+    thinker: "Adam Smith",
+    explanation: "Smith beschreef hoe arbeidsverdeling (zoals in een speldenfabriek) de economie efficiënter maakt."
   }
 ];

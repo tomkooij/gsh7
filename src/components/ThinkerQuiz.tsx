@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { thinkerStatements, thinkers } from '../data/thinkerQuiz';
+import React, { useState, useEffect } from 'react';
+import { thinkerStatements as initialStatements, thinkers } from '../data/thinkerQuiz';
 
 const ThinkerQuiz: React.FC = () => {
+  const [statements, setStatements] = useState([...initialStatements]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedThinker, setSelectedThinker] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
 
-  const currentStatement = thinkerStatements[currentIndex];
+  // Shuffle statements on mount
+  useEffect(() => {
+    const shuffled = [...initialStatements].sort(() => Math.random() - 0.5);
+    setStatements(shuffled);
+  }, []);
+
+  const currentStatement = statements[currentIndex];
 
   const handleGuess = (thinker: string) => {
     if (showResult) return;
@@ -21,8 +28,18 @@ const ThinkerQuiz: React.FC = () => {
   const nextQuestion = () => {
     setSelectedThinker(null);
     setShowResult(false);
-    setCurrentIndex((currentIndex + 1) % thinkerStatements.length);
+    
+    // If we've reached the end, reshuffle and start over
+    if (currentIndex === statements.length - 1) {
+      const shuffled = [...initialStatements].sort(() => Math.random() - 0.5);
+      setStatements(shuffled);
+      setCurrentIndex(0);
+    } else {
+      setCurrentIndex(currentIndex + 1);
+    }
   };
+
+  if (!currentStatement) return null;
 
   return (
     <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-xl p-8">
@@ -68,13 +85,13 @@ const ThinkerQuiz: React.FC = () => {
             onClick={nextQuestion}
             className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
           >
-            Volgende stelling
+            {currentIndex === statements.length - 1 ? 'Quiz herstarten' : 'Volgende stelling'}
           </button>
         </div>
       )}
 
       <div className="mt-8 text-center text-sm text-gray-400">
-        Stelling {currentIndex + 1} van {thinkerStatements.length}
+        Stelling {currentIndex + 1} van {statements.length}
       </div>
     </div>
   );
