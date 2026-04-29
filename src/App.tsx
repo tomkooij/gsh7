@@ -3,12 +3,13 @@ import { flashcards as initialCards } from './data/flashcards'
 import Flashcard from './components/Flashcard'
 import Summary from './components/Summary'
 import ThinkerQuiz from './components/ThinkerQuiz'
+import RevolutionQuiz from './components/RevolutionQuiz'
 
 function App() {
   const [cards, setCards] = useState(initialCards)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-  const [view, setView] = useState<'flashcards' | 'summary' | 'thinker-quiz'>('flashcards')
+  const [view, setView] = useState<'flashcards' | 'summary' | 'thinker-quiz' | 'revolution-quiz'>('flashcards')
 
   const nextCard = () => {
     setIsFlipped(false)
@@ -74,7 +75,17 @@ function App() {
                   : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
               }`}
             >
-              Denkers Quiz
+              Denkers
+            </button>
+            <button 
+              onClick={() => setView('revolution-quiz')}
+              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+                view === 'revolution-quiz' 
+                  ? 'bg-blue-600 text-white shadow-lg scale-105' 
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              }`}
+            >
+              Revoluties
             </button>
             <button 
               onClick={() => setView('summary')}
@@ -137,6 +148,7 @@ function App() {
           )}
           {view === 'summary' && <Summary />}
           {view === 'thinker-quiz' && <ThinkerQuiz />}
+          {view === 'revolution-quiz' && <RevolutionQuiz />}
         </main>
       </div>
     </div>
