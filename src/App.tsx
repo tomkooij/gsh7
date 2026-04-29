@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { flashcards as initialCards } from './data/flashcards'
 import Flashcard from './components/Flashcard'
 import Summary from './components/Summary'
+import ThinkerQuiz from './components/ThinkerQuiz'
 
 function App() {
   const [cards, setCards] = useState(initialCards)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-  const [view, setView] = useState<'flashcards' | 'summary'>('flashcards')
+  const [view, setView] = useState<'flashcards' | 'summary' | 'thinker-quiz'>('flashcards')
 
   const nextCard = () => {
     setIsFlipped(false)
@@ -48,29 +49,39 @@ function App() {
   const currentCard = cards[currentIndex]
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 font-sans">
+    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 font-sans text-gray-900">
       <div className="max-w-4xl mx-auto">
         <header className="text-center mb-8">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-2">Geschiedenis Leren</h1>
           <p className="text-lg text-gray-600">De tijd van pruiken en revoluties (1700-1815)</p>
           
-          <div className="mt-8 flex justify-center gap-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button 
               onClick={() => setView('flashcards')}
-              className={`px-6 py-2 rounded-full font-bold transition-all ${
+              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'flashcards' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
               }`}
             >
               Flashcards
             </button>
             <button 
+              onClick={() => setView('thinker-quiz')}
+              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+                view === 'thinker-quiz' 
+                  ? 'bg-blue-600 text-white shadow-lg scale-105' 
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              }`}
+            >
+              Denkers Quiz
+            </button>
+            <button 
               onClick={() => setView('summary')}
-              className={`px-6 py-2 rounded-full font-bold transition-all ${
+              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'summary' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
               }`}
             >
               Samenvatting
@@ -78,8 +89,8 @@ function App() {
           </div>
         </header>
 
-        <main>
-          {view === 'flashcards' ? (
+        <main className="pb-12">
+          {view === 'flashcards' && (
             <>
               <div className="mb-8">
                 <Flashcard 
@@ -123,9 +134,9 @@ function App() {
                 </div>
               </div>
             </>
-          ) : (
-            <Summary />
           )}
+          {view === 'summary' && <Summary />}
+          {view === 'thinker-quiz' && <ThinkerQuiz />}
         </main>
       </div>
     </div>
