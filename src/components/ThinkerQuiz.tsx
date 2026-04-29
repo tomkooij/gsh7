@@ -77,7 +77,9 @@ const ThinkerQuiz: React.FC = () => {
         <div className="animate-fade-in">
           <div className={`p-4 rounded-lg mb-6 ${selectedThinker === currentStatement.thinker ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
             <p className="font-bold mb-1">
-              {selectedThinker === currentStatement.thinker ? 'Correct!' : 'Helaas...'}
+              {selectedThinker === currentStatement.thinker 
+                ? `Correct! Het was inderdaad ${currentStatement.thinker}.` 
+                : `Helaas... Het juiste antwoord was ${currentStatement.thinker}.`}
             </p>
             <p>{currentStatement.explanation}</p>
           </div>
