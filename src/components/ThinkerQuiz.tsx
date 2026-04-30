@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { thinkerStatements as initialStatements, thinkers } from '../data/thinkerQuiz';
 
 const ThinkerQuiz: React.FC = () => {
-  const [statements, setStatements] = useState([...initialStatements]);
+  const [statements, setStatements] = useState(() => [...initialStatements].sort(() => Math.random() - 0.5));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedThinker, setSelectedThinker] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
-
-  // Shuffle statements on mount
-  useEffect(() => {
-    const shuffled = [...initialStatements].sort(() => Math.random() - 0.5);
-    setStatements(shuffled);
-  }, []);
 
   const currentStatement = statements[currentIndex];
 

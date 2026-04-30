@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
-import { revolutionItems as initialItems, revolutions } from '../data/revolutionQuiz';
+import { slaveryQuizItems as initialItems } from '../data/slaveryQuiz';
 
-const RevolutionQuiz: React.FC = () => {
+const SlaveryQuiz: React.FC = () => {
   const [items, setItems] = useState(() => [...initialItems].sort(() => Math.random() - 0.5));
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedRevolution, setSelectedRevolution] = useState<string | null>(null);
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [showResult, setShowResult] = useState(false);
   const [score, setScore] = useState(0);
 
   const currentItem = items[currentIndex];
 
-  const handleGuess = (revolution: string) => {
+  const handleGuess = (option: string) => {
     if (showResult) return;
-    setSelectedRevolution(revolution);
+    setSelectedOption(option);
     setShowResult(true);
-    if (revolution === currentItem.revolution) {
+    if (option === currentItem.answer) {
       setScore(score + 1);
     }
   };
 
   const nextQuestion = () => {
-    setSelectedRevolution(null);
+    setSelectedOption(null);
     setShowResult(false);
     
     if (currentIndex === items.length - 1) {
@@ -37,42 +37,42 @@ const RevolutionQuiz: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="mb-6 flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-800">Bij welke revolutie hoort dit?</h2>
+        <h2 className="text-2xl font-bold text-gray-800">Quiz: Kolonialisme en Slavernij</h2>
         <span className="text-blue-600 font-bold bg-white px-3 py-1 rounded-full shadow-sm border border-blue-100">Score: {score}</span>
       </div>
 
       <div className="bg-gray-50 p-6 rounded-lg mb-8 border-l-4 border-blue-500 text-xl font-medium text-gray-700 min-h-[100px] flex items-center justify-center text-center">
-        {currentItem.item}
+        {currentItem.question}
       </div>
 
       <div className="flex flex-col gap-3 mb-8">
-        {revolutions.map((rev) => (
+        {currentItem.options.map((option) => (
           <button
-            key={rev}
-            onClick={() => handleGuess(rev)}
+            key={option}
+            onClick={() => handleGuess(option)}
             disabled={showResult}
-            className={`p-4 rounded-lg font-bold border-2 transition-all ${
+            className={`p-4 rounded-lg font-bold border-2 transition-all text-left ${
               showResult
-                ? rev === currentItem.revolution
+                ? option === currentItem.answer
                   ? 'bg-green-100 border-green-500 text-green-700'
-                  : rev === selectedRevolution
+                  : option === selectedOption
                   ? 'bg-red-100 border-red-500 text-red-700'
                   : 'bg-gray-50 border-gray-200 text-gray-400'
                 : 'bg-white border-blue-100 text-blue-800 hover:border-blue-500 hover:bg-blue-50 shadow-sm'
             }`}
           >
-            {rev}
+            {option}
           </button>
         ))}
       </div>
 
       {showResult && (
         <div className="animate-fade-in">
-          <div className={`p-4 rounded-lg mb-6 ${selectedRevolution === currentItem.revolution ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+          <div className={`p-4 rounded-lg mb-6 ${selectedOption === currentItem.answer ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
             <p className="font-bold mb-1">
-              {selectedRevolution === currentItem.revolution 
-                ? `Correct! Dit hoort bij de ${currentItem.revolution}.` 
-                : `Onjuist. Dit hoort bij de ${currentItem.revolution}.`}
+              {selectedOption === currentItem.answer 
+                ? 'Correct!' 
+                : `Onjuist. Het juiste antwoord was: ${currentItem.answer}.`}
             </p>
             <p>{currentItem.explanation}</p>
           </div>
@@ -92,4 +92,4 @@ const RevolutionQuiz: React.FC = () => {
   );
 };
 
-export default RevolutionQuiz;
+export default SlaveryQuiz;

@@ -1,29 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { flashcards as initialCards } from './data/flashcards'
 import Flashcard from './components/Flashcard'
 import Summary from './components/Summary'
 import ThinkerQuiz from './components/ThinkerQuiz'
 import RevolutionQuiz from './components/RevolutionQuiz'
+import SlaveryQuiz from './components/SlaveryQuiz'
 
 function App() {
   const [cards, setCards] = useState(initialCards)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-  const [view, setView] = useState<'flashcards' | 'summary' | 'thinker-quiz' | 'revolution-quiz'>('flashcards')
+  const [view, setView] = useState<'flashcards' | 'summary' | 'thinker-quiz' | 'revolution-quiz' | 'slavery-quiz'>('flashcards')
 
-  const nextCard = () => {
+  const nextCard = useCallback(() => {
     setIsFlipped(false)
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % cards.length)
     }, 50)
-  }
+  }, [cards.length])
 
-  const prevCard = () => {
+  const prevCard = useCallback(() => {
     setIsFlipped(false)
     setTimeout(() => {
       setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length)
     }, 50)
-  }
+  }, [cards.length])
 
   const shuffleCards = () => {
     setIsFlipped(false)
@@ -45,7 +46,7 @@ function App() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isFlipped, cards.length, view])
+  }, [isFlipped, view, nextCard, prevCard])
 
   const currentCard = cards[currentIndex]
 
@@ -86,6 +87,16 @@ function App() {
               }`}
             >
               Revoluties
+            </button>
+            <button 
+              onClick={() => setView('slavery-quiz')}
+              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+                view === 'slavery-quiz' 
+                  ? 'bg-blue-600 text-white shadow-lg scale-105' 
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+              }`}
+            >
+              Slavernij
             </button>
             <button 
               onClick={() => setView('summary')}
@@ -150,6 +161,7 @@ function App() {
             {view === 'summary' && <Summary />}
             {view === 'thinker-quiz' && <ThinkerQuiz />}
             {view === 'revolution-quiz' && <RevolutionQuiz />}
+            {view === 'slavery-quiz' && <SlaveryQuiz />}
           </div>
         </main>
       </div>
