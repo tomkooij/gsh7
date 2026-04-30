@@ -18,7 +18,7 @@ export const flashcards: FlashcardData[] = [
   {
     id: 3,
     question: "Wat wordt bedoeld met de 'verlichting'?",
-    answer: "Een beweging in de 18e eeuw die meende dat kennis en verstand de mensheid hielpen uit de 'duisternis' van onwetendheid en intolerantie."
+    answer: "Een movement in de 18e eeuw die meende dat kennis en verstand de mensheid hielpen uit de 'duisternis' van onwetendheid en intolerantie."
   },
   {
     id: 4,
@@ -167,32 +167,32 @@ export const flashcards: FlashcardData[] = [
   },
   {
     id: 33,
-    question: "Wat was de 'trans-Atlantische driehoekshandel'?",
-    answer: "De handel tussen Europa (nijverheidsproducten), Afrika (slaven) en Amerika (plantageproducten zoals suiker en cacao)."
+    question: "Wat is het eerste kenmerkende aspect van de 18e eeuw?",
+    answer: "Rationeel optimisme en 'verlicht denken' dat werd toegepast op alle terreinen van de samenleving."
   },
   {
     id: 34,
-    question: "Waarom waren de omstandigheden op Amerikaanse plantages vaak slechter dan in Afrika?",
-    answer: "Vanwege de extreme intimidatie, wreedheid van opzichters en het gebrek aan hoop op vrijlating."
+    question: "Wat is het kenmerkende aspect over het bestuur in de 18e eeuw?",
+    answer: "Voortbestaan van het ancien régime met pogingen om het vorstelijk bestuur op eigentijdse verlichte wijze vorm te geven (verlicht absolutisme)."
   },
   {
     id: 35,
-    question: "Welke rol speelde de WIC (West-Indische Compagnie) in de slavernij?",
-    answer: "Zij vervoerden honderdduizenden tot slaaf gemaakte Afrikanen naar koloniën zoals Suriname en de Antillen."
+    question: "Wat was het gevolg van de democratische revoluties volgens de kenmerkende aspecten?",
+    answer: "Discussies over grondwetten, grondrechten en staatsburgerschap."
   },
   {
     id: 36,
-    question: "Welk religieus argument gebruikten slavenhouders soms om slavernij te rechtvaardigen?",
-    answer: "Het bijbelverhaal over Noach en zijn zoon Cham (de 'vloek van Cham')."
+    question: "Welke drie zaken worden genoemd in het kenmerkende aspect over kolonialisme?",
+    answer: "Uitbouw van de Europese overheersing (plantagekoloniën), de trans-Atlantische slavenhandel en de opkomst van het abolitionisme."
   },
   {
     id: 37,
-    question: "Welke Britse organisatie werd in 1787 opgericht om de slavenhandel af te schaffen?",
-    answer: "The Society for the Abolition of the Slave Trade."
+    question: "Wat is de 'driehoekshandel'?",
+    answer: "De handel tussen Europa (nijverheidsproducten), Afrika (slaven) en Amerika (plantageproducten zoals suiker en cacao)."
   },
   {
     id: 38,
-    question: "Wanneer werd de slavernij in Nederlands-Indië afgeschaft?",
-    answer: "In 1860."
+    question: "Waarom waren de omstandigheden op Amerikaanse plantages vaak slechter dan in Afrika?",
+    answer: "Vanwege de extreme intimidatie, wreedheid van opzichters en het gebrek aan hoop op vrijlating."
   }
 ];

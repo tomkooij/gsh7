@@ -60,7 +60,7 @@ const Summary: React.FC = () => {
       </section>
 
       <section>
-        <h3 className="text-xl font-bold mb-3 text-blue-700">4. Kolonialisme en Slavernij</h3>
+        <h3 className="text-xl font-bold mb-3 text-blue-700">4. Europese overheersing, Slavenhandel en Abolitionisme</h3>
         <p className="mb-4">
           De opbouw van Europese overheersing breidde zich uit, met name in de vorm van <strong className="text-blue-900">plantagekoloniën</strong> in Amerika. Hierop werkten miljoenen tot slaaf gemaakte Afrikanen. Zij werden via de brute <strong className="text-blue-900">trans-Atlantische slavenhandel</strong> (onderdeel van de driehoekshandel Europa-Afrika-Amerika) vervoerd. De omstandigheden op de schepen en de plantages waren onmenselijk zwaar; slaven werden blootgesteld aan <strong className="text-blue-900">intimidatie</strong>, wreedheid (brandmerken, zwepen) en zwaar lichamelijk werk.
         </p>
