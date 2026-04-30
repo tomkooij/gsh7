@@ -52,14 +52,14 @@ const ThinkerQuiz: React.FC = () => {
             key={thinker}
             onClick={() => handleGuess(thinker)}
             disabled={showResult}
-            className={`p-4 rounded-lg font-medium border-2 transition-all ${
+            className={`p-5 min-h-[70px] rounded-xl font-bold border-2 transition-all text-lg ${
               showResult
                 ? thinker === currentStatement.thinker
                   ? 'bg-green-100 border-green-500 text-green-700'
                   : thinker === selectedThinker
                   ? 'bg-red-100 border-red-500 text-red-700'
                   : 'bg-gray-50 border-gray-200 text-gray-400'
-                : 'bg-white border-blue-100 text-blue-800 hover:border-blue-500 hover:bg-blue-50'
+                : 'bg-white border-blue-100 text-blue-800 hover:border-blue-500 hover:bg-blue-50 shadow-sm'
             }`}
           >
             {thinker}
@@ -69,17 +69,17 @@ const ThinkerQuiz: React.FC = () => {
 
       {showResult && (
         <div className="animate-fade-in">
-          <div className={`p-4 rounded-lg mb-6 ${selectedThinker === currentStatement.thinker ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
-            <p className="font-bold mb-1">
+          <div className={`p-5 rounded-xl mb-6 ${selectedThinker === currentStatement.thinker ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+            <p className="font-extrabold text-lg mb-2">
               {selectedThinker === currentStatement.thinker 
                 ? `Correct! Het was inderdaad ${currentStatement.thinker}.` 
                 : `Helaas... Het juiste antwoord was ${currentStatement.thinker}.`}
             </p>
-            <p>{currentStatement.explanation}</p>
+            <p className="text-base">{currentStatement.explanation}</p>
           </div>
           <button
             onClick={nextQuestion}
-            className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
+            className="w-full py-5 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg"
           >
             {currentIndex === statements.length - 1 ? 'Quiz herstarten' : 'Volgende stelling'}
           </button>

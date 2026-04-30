@@ -60,50 +60,50 @@ function App() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <button 
               onClick={() => setView('flashcards')}
-              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+              className={`px-5 py-3 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'flashcards' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm'
               }`}
             >
               Flashcards
             </button>
             <button 
               onClick={() => setView('thinker-quiz')}
-              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+              className={`px-5 py-3 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'thinker-quiz' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm'
               }`}
             >
               Denkers
             </button>
             <button 
               onClick={() => setView('revolution-quiz')}
-              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+              className={`px-5 py-3 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'revolution-quiz' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm'
               }`}
             >
               Revoluties
             </button>
             <button 
               onClick={() => setView('slavery-quiz')}
-              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+              className={`px-5 py-3 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'slavery-quiz' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm'
               }`}
             >
               Slavernij
             </button>
             <button 
               onClick={() => setView('summary')}
-              className={`px-5 py-2 rounded-full font-bold transition-all text-sm sm:text-base ${
+              className={`px-5 py-3 rounded-full font-bold transition-all text-sm sm:text-base ${
                 view === 'summary' 
                   ? 'bg-blue-600 text-white shadow-lg scale-105' 
-                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                  : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 shadow-sm'
               }`}
             >
               Samenvatting
@@ -112,10 +112,10 @@ function App() {
         </header>
 
         <main className="pb-12">
-          <div className="ledger-container shadow-2xl">
+          <div className="bg-white rounded-xl shadow-lg p-6 sm:p-10 border border-gray-200 flex flex-col items-center">
             {view === 'flashcards' && (
               <>
-                <div className="mb-8">
+                <div className="w-full mb-8">
                   <Flashcard 
                     question={currentCard.question}
                     answer={currentCard.answer}
@@ -124,35 +124,37 @@ function App() {
                   />
                 </div>
 
-                <div className="flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-6 w-full">
                   <div className="text-sm font-medium text-gray-500">
                     Kaart {currentIndex + 1} van {cards.length}
                   </div>
 
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 w-full">
                     <button 
                       onClick={prevCard}
-                      className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                      className="flex-1 py-4 bg-white border border-gray-300 rounded-xl shadow-sm text-base font-bold text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                     >
                       Vorige
                     </button>
                     
                     <button 
                       onClick={shuffleCards}
-                      className="px-6 py-2 bg-white border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                      className="px-6 py-4 bg-white border border-gray-300 rounded-xl shadow-sm text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                     >
-                      Schudden
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                      </svg>
                     </button>
 
                     <button 
                       onClick={nextCard}
-                      className="px-6 py-2 bg-blue-600 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+                      className="flex-1 py-4 bg-blue-600 border border-transparent rounded-xl shadow-md text-base font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
                     >
                       Volgende
                     </button>
                   </div>
 
-                  <div className="text-xs text-gray-400 mt-4 italic">
+                  <div className="text-xs text-gray-400 mt-4 italic text-center">
                     Tip: Gebruik de pijltoetsen om te navigeren en spatie om de kaart om te draaien.
                   </div>
                 </div>

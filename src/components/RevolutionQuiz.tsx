@@ -51,7 +51,7 @@ const RevolutionQuiz: React.FC = () => {
             key={rev}
             onClick={() => handleGuess(rev)}
             disabled={showResult}
-            className={`p-4 rounded-lg font-bold border-2 transition-all ${
+            className={`p-5 min-h-[60px] rounded-xl font-bold border-2 transition-all text-lg ${
               showResult
                 ? rev === currentItem.revolution
                   ? 'bg-green-100 border-green-500 text-green-700'
@@ -68,17 +68,17 @@ const RevolutionQuiz: React.FC = () => {
 
       {showResult && (
         <div className="animate-fade-in">
-          <div className={`p-4 rounded-lg mb-6 ${selectedRevolution === currentItem.revolution ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
-            <p className="font-bold mb-1">
+          <div className={`p-5 rounded-xl mb-6 ${selectedRevolution === currentItem.revolution ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+            <p className="font-extrabold text-lg mb-2">
               {selectedRevolution === currentItem.revolution 
                 ? `Correct! Dit hoort bij de ${currentItem.revolution}.` 
                 : `Onjuist. Dit hoort bij de ${currentItem.revolution}.`}
             </p>
-            <p>{currentItem.explanation}</p>
+            <p className="text-base">{currentItem.explanation}</p>
           </div>
           <button
             onClick={nextQuestion}
-            className="w-full py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors shadow-md"
+            className="w-full py-5 bg-blue-600 text-white rounded-xl font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg"
           >
             {currentIndex === items.length - 1 ? 'Quiz herstarten' : 'Volgende vraag'}
           </button>
